@@ -6,7 +6,7 @@
     >>> tmp = getfixture('tmpdir')
     >>> old = tmp.chdir()
 """
-from ... import logging
+from nipype import config
 from ..base import (
     traits,
     DynamicTraitedSpec,
@@ -18,7 +18,7 @@ from ..io import IOBase, add_traits
 from ...utils.filemanip import ensure_list
 from ...utils.functions import getsource, create_function_from_source
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class FunctionInputSpec(DynamicTraitedSpec, BaseInterfaceInputSpec):

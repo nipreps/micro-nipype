@@ -18,7 +18,7 @@ from logging import INFO
 
 from tempfile import mkdtemp
 
-from ... import config, logging
+from nipype import config
 from ...utils.misc import flatten, unflatten, str2bool, dict_diff
 from ...utils.filemanip import (
     md5,
@@ -61,7 +61,7 @@ from .utils import (
 )
 from .base import EngineBase
 
-logger = logging.getLogger("nipype.workflow")
+logger = config.getLogger("nipype.workflow")
 
 
 class NodeExecutionError(RuntimeError):

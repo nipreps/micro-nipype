@@ -11,10 +11,11 @@ import uuid
 from time import strftime
 from traceback import format_exception
 
-from ... import logging
+from nipype import config
+
 from ...utils.filemanip import savepkl, crash2txt
 
-logger = logging.getLogger("nipype.workflow")
+logger = config.getLogger("nipype.workflow")
 
 
 def report_crash(node, traceback=None, hostname=None):
@@ -126,7 +127,7 @@ value = os.environ.get('NIPYPE_NO_ET', None)
 if value is None:
     # disable ET for any submitted job
     os.environ['NIPYPE_NO_ET'] = "1"
-from nipype import config, logging
+from nipype import config
 
 from nipype.utils.filemanip import loadpkl, savepkl
 from socket import gethostname

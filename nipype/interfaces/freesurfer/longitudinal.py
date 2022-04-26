@@ -6,12 +6,12 @@
 
 import os
 
-from ... import logging
+from nipype import config
 from ..base import TraitedSpec, File, traits, InputMultiPath, OutputMultiPath, isdefined
 from .base import FSCommand, FSTraitedSpec, FSCommandOpenMP, FSTraitedSpecOpenMP
 
 __docformat__ = "restructuredtext"
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class RobustTemplateInputSpec(FSTraitedSpecOpenMP):

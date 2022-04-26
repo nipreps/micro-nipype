@@ -5,7 +5,7 @@
 import os.path as op
 import numpy as np
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import split_filename
 from ..base import (
     CommandLineInputSpec,
@@ -17,7 +17,7 @@ from ..base import (
     isdefined,
 )
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class DWI2SphericalHarmonicsImageInputSpec(CommandLineInputSpec):

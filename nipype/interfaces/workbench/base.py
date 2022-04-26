@@ -13,11 +13,11 @@ Human Connectome Project.
 import os
 import re
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import split_filename
 from ..base import CommandLine, PackageInfo
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class Info(PackageInfo):

@@ -18,7 +18,7 @@ import gc
 
 from copy import deepcopy
 import numpy as np
-from ... import logging
+from nipype import config
 from ...utils.profiler import get_system_total_memory_gb
 from ..engine import MapNode
 from .base import DistributedPluginBase
@@ -36,7 +36,7 @@ except ImportError:
 
 
 # Init logger
-logger = logging.getLogger("nipype.workflow")
+logger = config.getLogger("nipype.workflow")
 
 
 # Run node

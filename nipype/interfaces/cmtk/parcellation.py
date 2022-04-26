@@ -9,7 +9,7 @@ import numpy as np
 import nibabel as nb
 import networkx as nx
 
-from ... import logging
+from nipype import config
 from ..base import (
     BaseInterface,
     LibraryBaseInterface,
@@ -22,7 +22,7 @@ from ..base import (
 )
 from .base import have_cmp
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 def create_annot_label(subject_id, subjects_dir, fs_dir, parcellation_name):

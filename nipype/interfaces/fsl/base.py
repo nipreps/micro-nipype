@@ -29,12 +29,12 @@ See the docstrings of the individual classes for examples.
 from glob import glob
 import os
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import fname_presuffix
 from ..base import traits, isdefined, CommandLine, CommandLineInputSpec, PackageInfo
 from ...external.due import BibTeX
 
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 
 class Info(PackageInfo):

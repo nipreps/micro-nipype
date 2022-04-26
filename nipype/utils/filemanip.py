@@ -21,10 +21,10 @@ from pathlib import Path
 import simplejson as json
 from time import sleep, time
 
-from .. import logging, config, __version__ as version
+from nipype import config, config, __version__ as version
 from .misc import is_container
 
-fmlogger = logging.getLogger("nipype.utils")
+fmlogger = config.getLogger("nipype.utils")
 
 related_filetype_sets = [(".hdr", ".img", ".mat"), (".nii", ".mat"), (".BRIK", ".HEAD")]
 

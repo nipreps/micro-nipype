@@ -9,7 +9,7 @@ import numpy as np
 import nibabel as nb
 from distutils.version import LooseVersion
 
-from ... import logging
+from nipype import config
 from ..base import TraitedSpec, File, traits, isdefined
 from .base import (
     DipyDiffusionInterface,
@@ -21,7 +21,7 @@ from .base import (
 )
 
 
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 if HAVE_DIPY and LooseVersion(dipy_version()) >= LooseVersion("0.15"):
     from dipy.workflows import reconst

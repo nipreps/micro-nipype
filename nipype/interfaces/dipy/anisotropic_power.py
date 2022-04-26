@@ -3,11 +3,11 @@
 import numpy as np
 import nibabel as nb
 
-from ... import logging
+from nipype import config
 from ..base import TraitedSpec, File, isdefined
 from .base import DipyDiffusionInterface, DipyBaseInterfaceInputSpec
 
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 
 class APMQballInputSpec(DipyBaseInterfaceInputSpec):

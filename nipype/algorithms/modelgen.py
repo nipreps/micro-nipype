@@ -13,6 +13,8 @@ import csv, math, os
 from nibabel import load
 import numpy as np
 
+from nipype import config
+
 from ..interfaces.base import (
     BaseInterface,
     TraitedSpec,
@@ -25,9 +27,8 @@ from ..interfaces.base import (
 )
 from ..utils.filemanip import ensure_list
 from ..utils.misc import normalize_mc_params
-from .. import config, logging
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 def spm_hrf(RT, P=None, fMRI_T=16):

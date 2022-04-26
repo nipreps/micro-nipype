@@ -16,7 +16,7 @@ import shutil
 
 import numpy as np
 
-from ... import config, logging
+from nipype import config
 from ...utils.misc import str2bool
 from ...utils.functions import getsource, create_function_from_source
 
@@ -37,7 +37,7 @@ from .utils import (
 from .base import EngineBase
 from .nodes import MapNode
 
-logger = logging.getLogger("nipype.workflow")
+logger = config.getLogger("nipype.workflow")
 
 
 class Workflow(EngineBase):

@@ -8,7 +8,7 @@ import os.path as op
 import numpy as np
 from numpy import linalg as nla
 
-from .. import logging
+from nipype import config
 from ..interfaces.base import (
     BaseInterface,
     traits,
@@ -19,7 +19,7 @@ from ..interfaces.base import (
 from ..interfaces.vtkbase import tvtk
 from ..interfaces import vtkbase as VTKInfo
 
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 
 class TVTKBaseInterface(BaseInterface):

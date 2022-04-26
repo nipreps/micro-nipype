@@ -5,8 +5,7 @@ import nibabel as nb
 import numpy as np
 from distutils.version import LooseVersion
 
-
-from ... import logging
+from nipype import config
 from ..base import traits, TraitedSpec, File, isdefined
 from .base import (
     HAVE_DIPY,
@@ -16,7 +15,7 @@ from .base import (
     DipyBaseInterface,
 )
 
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 if HAVE_DIPY and LooseVersion(dipy_version()) >= LooseVersion("0.15"):
     from dipy.workflows import denoise, mask

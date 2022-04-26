@@ -6,10 +6,10 @@
 import os
 from abc import abstractmethod
 
-from ... import logging
+from nipype import config
 from ..base import File, BaseInterface, BaseInterfaceInputSpec, TraitedSpec
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class ReportCapableInputSpec(BaseInterfaceInputSpec):

@@ -10,10 +10,10 @@ the elastix registration software.
 
 """
 
-from ... import logging
+from nipype import config
 from ..base import CommandLineInputSpec, Directory, traits
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class ElastixBaseInputSpec(CommandLineInputSpec):

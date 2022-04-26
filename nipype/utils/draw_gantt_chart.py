@@ -428,7 +428,7 @@ def generate_gantt_chart(
     # from nipype.utils.profiler import log_nodes_cb
 
     # log_filename = 'callback.log'
-    # logger = logging.getLogger('callback')
+    # logger = config.getLogger('callback')
     # logger.setLevel(logging.DEBUG)
     # handler = logging.FileHandler(log_filename)
     # logger.addHandler(handler)

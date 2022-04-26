@@ -6,16 +6,17 @@ import pwd
 import re
 import subprocess
 import time
+import logging
 
 import xml.dom.minidom
 
 import random
 
-from ... import logging
+from nipype import config
 from ...interfaces.base import CommandLine
 from .base import SGELikeBatchManagerBase, logger
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 DEBUGGING_PREFIX = str(int(random.uniform(100, 999)))
 
 

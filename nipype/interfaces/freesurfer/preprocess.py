@@ -12,7 +12,7 @@ import sys
 import numpy as np
 from nibabel import load
 
-from ... import logging, LooseVersion
+from nipype import config, LooseVersion
 from ...utils.filemanip import fname_presuffix, check_depends
 from ..io import FreeSurferSource
 from ..base import (
@@ -30,7 +30,7 @@ from .base import FSCommand, FSTraitedSpec, FSTraitedSpecOpenMP, FSCommandOpenMP
 from .utils import copy2subjdir
 
 __docformat__ = "restructuredtext"
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 # Keeping this to avoid breaking external programs that depend on it, but
 # this should not be used internally

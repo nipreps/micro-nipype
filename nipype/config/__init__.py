@@ -23,6 +23,7 @@
 """Nipype settings file."""
 import os
 import sys
+import logging as _logging
 from pathlib import Path
 
 _nipype_home = Path(
@@ -149,7 +150,6 @@ def __str__():
 
 def update():
     """Setup logging configuration."""
-    import logging as _logging
 
     _logging.captureWarnings(True)
     _logging.basicConfig(
@@ -182,6 +182,19 @@ def update():
             datefmt="%y%m%d-%H:%M:%S",
         ))
         _logging.getLogger().addHandler(_handler)
+
+
+def getLogger(logger_name):
+    if logger_name.endswith("face"):
+        return _logging.getLogger("nipype.interface")
+
+    if logger_name.endswith("flow"):
+        return _logging.getLogger("nipype.workflow")
+
+    if logger_name.replace("nipype.", "") in ("filemanip", "utils", "fmanip"):
+        return _logging.getLogger("nipype.utils")
+
+    return _logging.getLogger(logger_name)
 
 
 update()

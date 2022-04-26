@@ -27,13 +27,13 @@ See the docstrings of the individual classes for examples.
 """
 import os
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import fname_presuffix
 from ..base import CommandLine
 from nipype.interfaces.fsl.base import Info
 import warnings
 
-LOGGER = logging.getLogger("nipype.interface")
+LOGGER = config.getLogger("nipype.interface")
 
 
 class DTITKRenameMixin(object):

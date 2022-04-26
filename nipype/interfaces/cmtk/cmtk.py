@@ -8,7 +8,7 @@ import numpy as np
 import nibabel as nb
 import networkx as nx
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import split_filename
 
 from ..base import (
@@ -22,7 +22,7 @@ from ..base import (
     isdefined,
 )
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 def length(xyz, along=False):

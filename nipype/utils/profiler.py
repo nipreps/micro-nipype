@@ -17,7 +17,7 @@ except ImportError as exc:
 
 from .. import config, logging
 
-proflogger = logging.getLogger("nipype.utils")
+proflogger = config.getLogger("nipype.utils")
 resource_monitor = config.resource_monitor
 
 # Init variables
@@ -188,7 +188,7 @@ def log_nodes_cb(node, status):
         status_dict["error"] = True
 
     # Dump string to log
-    logging.getLogger("callback").debug(json.dumps(status_dict))
+    config.getLogger("callback").debug(json.dumps(status_dict))
 
 
 # Get total system RAM
@@ -382,7 +382,7 @@ def _use_resources(n_procs, mem_gb):
     from nipype import logging
     from nipype.utils.profiler import _use_cpu
 
-    iflogger = logging.getLogger("nipype.interface")
+    iflogger = config.getLogger("nipype.interface")
 
     # Getsize of one character string
     BSIZE = sys.getsizeof("  ") - sys.getsizeof(" ")

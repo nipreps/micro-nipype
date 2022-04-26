@@ -18,7 +18,7 @@ from functools import reduce
 
 import numpy as np
 
-from ... import logging, config, LooseVersion
+from nipype import config, config, LooseVersion
 from ...utils.filemanip import (
     indirectory,
     relpath,
@@ -48,7 +48,7 @@ from ...utils.provenance import ProvStore, pm, nipype_ns, get_id
 
 from inspect import signature
 
-logger = logging.getLogger("nipype.workflow")
+logger = config.getLogger("nipype.workflow")
 
 
 def _parameterization_dir(param):

@@ -5,7 +5,7 @@ import os.path as op
 import numpy as np
 import nibabel as nb
 
-from ... import logging
+from nipype import config
 from ..base import (
     traits,
     TraitedSpec,
@@ -16,7 +16,7 @@ from ..base import (
 )
 from .base import DipyBaseInterface
 
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 
 class SimulateMultiTensorInputSpec(BaseInterfaceInputSpec):

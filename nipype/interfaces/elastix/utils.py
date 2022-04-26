@@ -9,7 +9,7 @@ transform files (to configure warpings)
 """
 import os.path as op
 
-from ... import logging
+from nipype import config
 from ..base import (
     BaseInterface,
     BaseInterfaceInputSpec,
@@ -19,7 +19,7 @@ from ..base import (
     traits,
 )
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class EditTransformInputSpec(BaseInterfaceInputSpec):

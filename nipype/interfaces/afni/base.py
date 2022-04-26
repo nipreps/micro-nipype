@@ -4,9 +4,9 @@
 """Provide a base interface to AFNI commands."""
 import os
 from sys import platform
-from distutils import spawn
+from distutils import spawn, LooseVersion
 
-from ... import logging, LooseVersion
+from nipype import config
 from ...utils.filemanip import split_filename, fname_presuffix
 from ..base import (
     CommandLine,
@@ -20,7 +20,7 @@ from ..base import (
 from ...external.due import BibTeX
 
 # Use nipype's logging system
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 
 class Info(PackageInfo):

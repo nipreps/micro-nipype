@@ -7,7 +7,7 @@ import os.path as op
 import numpy as np
 import networkx as nx
 
-from ... import logging
+from nipype import config
 from ..base import (
     LibraryBaseInterface,
     BaseInterfaceInputSpec,
@@ -20,7 +20,7 @@ from ..base import (
 )
 from .base import have_cv
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 def ntwks_to_matrices(in_files, edge_key):

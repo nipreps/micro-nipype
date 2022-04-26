@@ -3,13 +3,14 @@
 """
 
 import os
+import logging
 from time import sleep
 
 from ...interfaces.base import CommandLine
-from ... import logging
+from nipype import config
 from .base import SGELikeBatchManagerBase, logger
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class CondorPlugin(SGELikeBatchManagerBase):

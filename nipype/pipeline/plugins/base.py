@@ -12,13 +12,13 @@ from traceback import format_exception
 
 import numpy as np
 
-from ... import logging
+from nipype import config
 from ...utils.misc import str2bool
 from ..engine.utils import topological_sort, load_resultfile
 from ..engine import MapNode
 from .tools import report_crash, report_nodes_not_run, create_pyscript
 
-logger = logging.getLogger("nipype.workflow")
+logger = config.getLogger("nipype.workflow")
 
 
 class PluginBase(object):

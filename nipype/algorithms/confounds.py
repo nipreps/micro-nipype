@@ -13,7 +13,7 @@ import nibabel as nb
 import numpy as np
 from numpy.polynomial import Legendre
 
-from .. import config, logging
+from nipype import config
 from ..external.due import BibTeX
 from ..interfaces.base import (
     traits,
@@ -28,7 +28,7 @@ from ..interfaces.base import (
 )
 from ..utils.misc import normalize_mc_params
 
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 
 def fallback_svd(a, full_matrices=True, compute_uv=True):

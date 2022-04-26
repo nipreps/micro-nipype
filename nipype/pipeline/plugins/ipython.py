@@ -19,7 +19,7 @@ except:
 def execute_task(pckld_task, node_config, updatehash):
     from socket import gethostname
     from traceback import format_exc
-    from nipype import config, logging
+    from nipype import config
 
     traceback = None
     result = None
@@ -27,8 +27,7 @@ def execute_task(pckld_task, node_config, updatehash):
 
     cwd = os.getcwd()
     try:
-        config.update_config(node_config)
-        logging.update_logging(config)
+        config.update()
         from pickle import loads
 
         task = loads(pckld_task)

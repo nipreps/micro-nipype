@@ -25,7 +25,7 @@ import tempfile
 from os.path import join, dirname
 from warnings import warn
 
-from .. import config, logging
+from nipype import config
 from ..utils.filemanip import (
     copyfile,
     simplify_list,
@@ -51,7 +51,7 @@ from .base import (
     SimpleInterface,
 )
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 def copytree(src, dst, use_hardlink=False):

@@ -5,12 +5,13 @@
 import os
 import re
 from time import sleep
+import logging
 
-from ... import logging
+from nipype import config
 from ...interfaces.base import CommandLine
 from .base import SGELikeBatchManagerBase, logger
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class LSFPlugin(SGELikeBatchManagerBase):

@@ -11,7 +11,8 @@ from math import floor, ceil
 import itertools
 import warnings
 
-from .. import logging
+from nipype import config
+
 from . import metrics as nam
 from ..interfaces.base import (
     BaseInterface,
@@ -29,7 +30,7 @@ from ..utils.filemanip import fname_presuffix, split_filename, ensure_list
 
 from . import confounds
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class PickAtlasInputSpec(BaseInterfaceInputSpec):

@@ -6,12 +6,13 @@ import stat
 from time import sleep
 import subprocess
 import simplejson as json
+import logging
 
-from ... import logging
+from nipype import config
 from ...interfaces.base import CommandLine
 from .base import SGELikeBatchManagerBase, logger
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class OARPlugin(SGELikeBatchManagerBase):

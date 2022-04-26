@@ -23,7 +23,7 @@ from nibabel import load
 import numpy as np
 
 # Local imports
-from ... import logging
+from nipype import config
 from ...utils import spm_docs as sd
 from ..base import (
     BaseInterface,
@@ -41,7 +41,7 @@ from ..matlab import MatlabCommand
 from ...external.due import due, Doi, BibTeX
 
 __docformat__ = "restructuredtext"
-logger = logging.getLogger("nipype.interface")
+logger = config.getLogger("nipype.interface")
 
 
 def func_is_3d(in_file):

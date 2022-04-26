@@ -7,7 +7,7 @@ import pickle
 import numpy as np
 import networkx as nx
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import split_filename
 from ..base import (
     BaseInterface,
@@ -21,7 +21,7 @@ from ..base import (
 )
 from .base import have_cmp
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 def read_unknown_ntwk(ntwk):

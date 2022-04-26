@@ -16,11 +16,11 @@ from datetime import datetime as dt
 from dateutil.parser import parse as parseutc
 import platform
 
-from ... import logging, config
+from nipype import config
 from ...utils.misc import is_container, rgetcwd
 from ...utils.filemanip import md5, hash_infile
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 HELP_LINEWIDTH = 70
 

@@ -15,8 +15,10 @@ import subprocess as sp
 import shlex
 import simplejson as json
 from traits.trait_errors import TraitError
+from distutils import LooseVersion
 
-from ... import config, logging, LooseVersion
+from nipype import config
+
 from ...utils.provenance import write_provenance
 from ...utils.misc import str2bool
 from ...utils.filemanip import (
@@ -45,7 +47,7 @@ from .support import (
     format_help,
 )
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 VALID_TERMINAL_OUTPUT = [
     "stream",

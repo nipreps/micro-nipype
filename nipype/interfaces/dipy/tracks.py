@@ -5,7 +5,7 @@ import numpy as np
 import nibabel as nb
 from distutils.version import LooseVersion
 
-from ... import logging
+from nipype import config
 from ..base import TraitedSpec, BaseInterfaceInputSpec, File, isdefined, traits
 from .base import (
     DipyBaseInterface,
@@ -15,7 +15,7 @@ from .base import (
     get_dipy_workflows,
 )
 
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 
 if HAVE_DIPY and (

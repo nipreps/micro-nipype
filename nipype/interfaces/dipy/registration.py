@@ -1,8 +1,8 @@
 from distutils.version import LooseVersion
-from ... import logging
+from nipype import config
 from .base import HAVE_DIPY, dipy_version, dipy_to_nipype_interface, get_dipy_workflows
 
-IFLOGGER = logging.getLogger("nipype.interface")
+IFLOGGER = config.getLogger("nipype.interface")
 
 
 if HAVE_DIPY and LooseVersion(dipy_version()) >= LooseVersion("0.15"):

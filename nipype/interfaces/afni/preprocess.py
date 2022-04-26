@@ -6,6 +6,7 @@
 import os
 import os.path as op
 
+from nipype import config
 from ...utils.filemanip import load_json, save_json, split_filename, fname_presuffix
 from ..base import (
     CommandLineInputSpec,
@@ -31,9 +32,8 @@ from .base import (
     no_afni,
 )
 
-from ... import logging
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class CentralityInputSpec(AFNICommandInputSpec):

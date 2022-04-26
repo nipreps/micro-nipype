@@ -18,11 +18,11 @@ See the docstrings of the individual classes for examples.
 from distutils.version import StrictVersion
 import os
 
-from ... import logging
+from nipype import config
 from ..base import CommandLine, CommandLineInputSpec, traits, Undefined, PackageInfo
 from ...utils.filemanip import split_filename
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 def get_custom_path(command, env_dir="NIFTYREGDIR"):

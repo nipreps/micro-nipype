@@ -7,7 +7,7 @@ import os
 import re
 import shutil
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import fname_presuffix, split_filename
 from ..base import (
     TraitedSpec,
@@ -71,7 +71,7 @@ filetypes = [
 ]
 implicit_filetypes = ["gii"]
 
-logger = logging.getLogger("nipype.interface")
+logger = config.getLogger("nipype.interface")
 
 
 def copy2subjdir(cls, in_file, folder=None, basename=None, subject_id=None):

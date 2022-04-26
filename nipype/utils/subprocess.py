@@ -14,9 +14,9 @@ from pathlib import Path
 from subprocess import Popen, STDOUT, PIPE
 from .filemanip import canonicalize_env, read_stream
 
-from .. import logging
+from nipype import config
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class Stream(object):

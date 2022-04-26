@@ -12,7 +12,7 @@ from glob import glob
 import numpy as np
 
 # Local imports
-from ... import logging
+from nipype import config
 from ...utils.filemanip import ensure_list, simplify_list, split_filename
 from ..base import (
     Bunch,
@@ -27,7 +27,7 @@ from ..base import (
 from .base import SPMCommand, SPMCommandInputSpec, scans_for_fnames, ImageFileSPM
 
 __docformat__ = "restructuredtext"
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class Level1DesignInputSpec(SPMCommandInputSpec):

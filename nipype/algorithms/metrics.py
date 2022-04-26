@@ -11,7 +11,7 @@ import os.path as op
 import nibabel as nb
 import numpy as np
 
-from .. import config, logging
+import config
 
 from ..interfaces.base import (
     SimpleInterface,
@@ -25,7 +25,7 @@ from ..interfaces.base import (
 )
 from ..interfaces.nipy.base import NipyBaseInterface
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class DistanceInputSpec(BaseInterfaceInputSpec):

@@ -7,7 +7,7 @@
 import os
 import os.path
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import split_filename, copyfile
 
 from .base import (
@@ -21,7 +21,7 @@ from .base import (
 from ..base import isdefined, TraitedSpec, File, traits, Directory
 
 __docformat__ = "restructuredtext"
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class MPRtoMNI305InputSpec(FSTraitedSpec):

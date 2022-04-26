@@ -8,9 +8,9 @@ Code using tvtk should import it through this module
 """
 
 import os
-from .. import logging
+from nipype import config
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 # Check that VTK can be imported and get version
 _vtk_version = None

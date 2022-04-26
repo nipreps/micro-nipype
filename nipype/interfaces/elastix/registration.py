@@ -10,11 +10,11 @@ displacement maps to images and points.
 import os.path as op
 import re
 
-from ... import logging
+from nipype import config
 from .base import ElastixBaseInputSpec
 from ..base import CommandLine, TraitedSpec, File, traits, InputMultiPath
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class RegistrationInputSpec(ElastixBaseInputSpec):

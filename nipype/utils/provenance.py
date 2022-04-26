@@ -12,10 +12,10 @@ import simplejson as json
 import numpy as np
 import prov.model as pm
 
-from .. import get_info, logging, __version__
+from nipype import config, __version__
 from .filemanip import md5, hashlib, hash_infile
 
-logger = logging.getLogger("nipype.utils")
+logger = config.getLogger("nipype.utils")
 foaf = pm.Namespace("foaf", "http://xmlns.com/foaf/0.1/")
 dcterms = pm.Namespace("dcterms", "http://purl.org/dc/terms/")
 nipype_ns = pm.Namespace("nipype", "http://nipy.org/nipype/terms/")

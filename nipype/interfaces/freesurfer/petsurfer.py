@@ -6,7 +6,7 @@
 
 import os
 
-from ... import logging
+from nipype import config
 from ..base import (
     TraitedSpec,
     File,
@@ -20,7 +20,7 @@ from .base import FSCommand, FSTraitedSpec
 from .model import GLMFitInputSpec, GLMFit
 
 __docformat__ = "restructuredtext"
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class GTMSegInputSpec(FSTraitedSpec):

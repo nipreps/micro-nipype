@@ -2,7 +2,7 @@
 # vi: set ft=python sts=4 ts=4 sw=4 et:
 # -*- coding: utf-8 -*-
 
-from ... import logging, LooseVersion
+from nipype import config, LooseVersion
 from ...utils.filemanip import which
 from ..base import (
     CommandLineInputSpec,
@@ -13,7 +13,7 @@ from ..base import (
     PackageInfo,
 )
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class Info(PackageInfo):

@@ -9,12 +9,12 @@ from nibabel.trackvis import HeaderError
 from nibabel.volumeutils import native_code
 from nibabel.orientations import aff2axcodes
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import split_filename
 from ..base import TraitedSpec, File, isdefined
 from ..dipy.base import DipyBaseInterface, HAVE_DIPY as have_dipy
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 def get_vox_dims(volume):

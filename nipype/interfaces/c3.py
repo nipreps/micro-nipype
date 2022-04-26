@@ -3,6 +3,7 @@
 import os
 from glob import glob
 
+from nipype import config
 from .base import (
     CommandLineInputSpec,
     traits,
@@ -15,9 +16,8 @@ from .base import (
     isdefined,
 )
 from ..utils.filemanip import split_filename
-from .. import logging
 
-iflogger = logging.getLogger("interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class C3dAffineToolInputSpec(CommandLineInputSpec):

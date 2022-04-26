@@ -247,7 +247,7 @@ def test_cwd_cached(tmpdir):
 
 
 def test_debug_mode():
-    from ... import logging
+    from nipype import config
 
     sofc_config = config.get("execution", "stop_on_first_crash")
     ruo_config = config.get("execution", "remove_unnecessary_outputs")
@@ -256,9 +256,9 @@ def test_debug_mode():
     if_config = config.get("logging", "interface_level")
     ut_config = config.get("logging", "utils_level")
 
-    wf_level = logging.getLogger("nipype.workflow").level
-    if_level = logging.getLogger("nipype.interface").level
-    ut_level = logging.getLogger("nipype.utils").level
+    wf_level = config.getLogger("nipype.workflow").level
+    if_level = config.getLogger("nipype.interface").level
+    ut_level = config.getLogger("nipype.utils").level
 
     config.enable_debug_mode()
 
@@ -270,9 +270,9 @@ def test_debug_mode():
     assert config.get("logging", "interface_level") == "DEBUG"
     assert config.get("logging", "utils_level") == "DEBUG"
 
-    assert logging.getLogger("nipype.workflow").level == 10
-    assert logging.getLogger("nipype.interface").level == 10
-    assert logging.getLogger("nipype.utils").level == 10
+    assert config.getLogger("nipype.workflow").level == 10
+    assert config.getLogger("nipype.interface").level == 10
+    assert config.getLogger("nipype.utils").level == 10
 
     # Restore config and levels
     config.set("execution", "stop_on_first_crash", sofc_config)
@@ -290,6 +290,6 @@ def test_debug_mode():
     assert config.get("logging", "interface_level") == if_config
     assert config.get("logging", "utils_level") == ut_config
 
-    assert logging.getLogger("nipype.workflow").level == wf_level
-    assert logging.getLogger("nipype.interface").level == if_level
-    assert logging.getLogger("nipype.utils").level == ut_level
+    assert config.getLogger("nipype.workflow").level == wf_level
+    assert config.getLogger("nipype.interface").level == if_level
+    assert config.getLogger("nipype.utils").level == ut_level

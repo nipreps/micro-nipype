@@ -2,12 +2,12 @@
 import os.path as op
 import glob
 
-from ... import logging
+from nipype import config
 from ...utils.filemanip import simplify_list
 from ..base import traits, File, Directory, TraitedSpec, OutputMultiPath
 from ..freesurfer.base import FSCommand, FSTraitedSpec
 
-iflogger = logging.getLogger("nipype.interface")
+iflogger = config.getLogger("nipype.interface")
 
 
 class WatershedBEMInputSpec(FSTraitedSpec):
