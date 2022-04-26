@@ -1,12 +1,7 @@
-include INSTALL
-include LICENSE
-include MANIFEST.in
-include	README
-include THANKS
-include Makefile
-include setup_egg.py
-include doc/documentation.zip
-include nipype/COMMIT_INFO.txt
+recursive-exclude .circleci/ *
+recursive-exclude .docker/ *
+recursive-exclude .github/ *
+recursive-exclude docs/ *
 
-recursive-include doc *
-recursive-include tools *
+exclude .*
+exclude Dockerfile

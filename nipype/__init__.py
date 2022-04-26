@@ -1,99 +1,43 @@
-# -*- coding: utf-8 -*-
 # emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: nil -*-
 # vi: set ft=python sts=4 ts=4 sw=4 et:
-"""
-Information on specific functions, classes, and methods.
-
-:Release: |version|
-:Date: |today|
-
-Top-level module API
---------------------
-
-"""
-import os
-from distutils.version import LooseVersion
-
-from .info import URL as __url__, STATUS as __status__, __version__
-from .utils.config import NipypeConfig
-from .utils.logger import Logging
-from .refs import due
-from .pkg_info import get_pkg_info as _get_pkg_info
+#
+# Copyright 2022 The NiPreps Developers <nipreps@gmail.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# We support and encourage derived works from this project, please read
+# about our expectations at
+#
+#     https://www.nipreps.org/community/licensing/
+#
+"""Add metadata on import."""
+__packagename__ = "nipype"
+__copyright__ = "2022, The NiPreps developers"
 
 try:
-    import faulthandler
+    from ._version import __version__
+except ModuleNotFoundError:
+    from pkg_resources import get_distribution, DistributionNotFound
 
-    faulthandler.enable()
-except (ImportError, IOError) as e:
-    pass
+    try:
+        __version__ = get_distribution(__packagename__).version
+    except DistributionNotFound:
+        __version__ = "unknown"
+    del get_distribution
+    del DistributionNotFound
 
-config = NipypeConfig()
-logging = Logging(config)
-
-
-class NipypeTester(object):
-    def __call__(self, doctests=True, parallel=False):
-        try:
-            import pytest
-        except ImportError:
-            raise RuntimeError("py.test not installed, run: pip install pytest")
-        args = []
-        if not doctests:
-            args.extend(["-p", "no:doctest"])
-        if parallel:
-            try:
-                import xdist
-            except ImportError:
-                raise RuntimeError("pytest-xdist required for parallel run")
-            args.append("-n auto")
-        args.append(os.path.dirname(__file__))
-        pytest.main(args=args)
-
-
-test = NipypeTester()
-
-
-def get_info():
-    """Returns package information"""
-    return _get_pkg_info(os.path.dirname(__file__))
-
-
-from .pipeline import Node, MapNode, JoinNode, Workflow
-from .interfaces import (
-    DataGrabber,
-    DataSink,
-    SelectFiles,
-    IdentityInterface,
-    Rename,
-    Function,
-    Select,
-    Merge,
+__all__ = (
+    "__copyright__",
+    "__packagename__",
+    "__version__",
 )
-
-
-def check_latest_version(raise_exception=False):
-    """
-    Check for the latest version of the library.
-
-    Parameters
-    ----------
-    raise_exception: bool
-        Raise a RuntimeError if a bad version is being used
-    """
-    import etelemetry
-
-    logger = logging.getLogger("nipype.utils")
-    return etelemetry.check_available_version(
-        "nipy/nipype", __version__, logger, raise_exception
-    )
-
-
-# Run telemetry on import for interactive sessions, such as IPython, Jupyter notebooks, Python REPL
-if config.getboolean("execution", "check_version"):
-    import __main__
-
-    if not hasattr(__main__, "__file__") and "NIPYPE_NO_ET" not in os.environ:
-        from .interfaces.base import BaseInterface
-
-        if BaseInterface._etelemetry_version_data is None:
-            BaseInterface._etelemetry_version_data = check_latest_version()

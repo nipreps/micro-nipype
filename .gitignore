@@ -1,33 +1,131 @@
-/build
-/dist
-/nipype.egg-info
-/MANIFEST
-/nipype/build
-/nipype/nipype.egg-info
-/doc/_build
-/doc/preproc
-/doc/users/examples
-/doc/api/generated
-*.pyc
-*.so
-.project
-.settings
-.pydevproject
-.eggs
-.idea/
-/documentation.zip
-.DS_Store
+# setuptools-scm
+nipype/_version.py
+
+# nipype
 nipype/testing/data/von-ray_errmap.nii.gz
 nipype/testing/data/von_errmap.nii.gz
 nipype/testing/data/.proc*
 crash*.pklz
-.coverage
-htmlcov/
+
+# Byte-compiled / optimized / DLL files
+pip-wheel-metadata
 __pycache__/
-*~
-.*.swp
-.ipynb_checkpoints/
-.ruby-version
-.pytest_cache
-.vscode/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+doc/_build/
+doc/preproc/
+doc/users/examples/
+doc/api/generated/
+
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
 venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE project settings
+.project
+.spyderproject
+.spyproject
+.ropeproject
+.settings
+.pydevproject
+.idea/
+.vscode/
+.*.swp
+*~
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+
+# Ruby version
+.ruby-version
+
+# Mac OSX
+.DS_Store
+
+
+
